@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>私の名前は {{ nom }}.</p>
+
+<p>私の趣味は :</p>
+<ul>
+  {% for hobbie in hobbies %}
+  <li>{{ hobbie }}</li>
+  {% endfor %}
+</ul>
+
+<p>私は{{ hobbies.0 }}が特に好きです !</p>
+
+
+<p>イカれたメンバーを紹介するぜ！！</p>
+{% for membre in membres %}
+<p>{{ membre.nom }}, {{ membre.prenom }}</p>
+{% endfor %}
+
+<p>ビックマック食べたいな！！</p>
+{% for nom, val in bigmac.items %}
+<p>{{ nom }} : {{ val }}</p>
+{% endfor %}
+
+<p>英語ですか？</p>
+{% if langue == "fr" %}
+<p>Quelque chose en français...</p>
+{% elif langue == "en" %}
+<p>Something in English...</p>
+{% else %}
+<p>{% lorem 2 p %}</p>
+{% endif %}
+
+<p>{{ date_birthday | date:"l, d F Y"}}</p>
+
+{% endblock %}
